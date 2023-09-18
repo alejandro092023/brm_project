@@ -1,0 +1,50 @@
+<div class="flex justify-content-center">
+  <p-card class="col-6" header="Login">
+    <form [formGroup]="form">
+      <div class="w-100 h-100">
+        <div class="">
+          <div class="w-100 p-1">
+            <label for="name_" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name_"
+              [class.is-invalid]="invalidName"
+            />
+            <small *ngIf="invalidName" class="text-danger"
+              >Ingrese un nombre valido</small
+            >
+          </div>
+          <div class="w-100 p-1">
+            <label for="password_" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password_"
+              [class.is-invalid]="invalidPassword"
+            />
+            <small *ngIf="invalidPassword" class="text-danger"
+              >Ingrese una contraseña</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="mt-1 flex justify-content-end">
+        <p-button
+          label="Aceptar"
+          icon=""
+          styleClass="p-button-outlined button-form"
+          [ngClass]="form?.valid ? 'p-button-primary' : 'p-button-secondary'"
+          (click)="setSubmitMetods()"
+          [disabled]="!form?.valid"
+        ></p-button>
+      </div>
+      <div class="w-100 flex justify-content-center">
+        <span class="text-center">
+          ¿no tiene cuenta?
+          <a [routerLink]="['/register']">Registrese</a>
+        </span>
+      </div>
+    </form>
+  </p-card>
+</div>

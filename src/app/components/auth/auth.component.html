@@ -1,0 +1,20 @@
+<div class="after-navbar">
+  <div class="w-100 relative flex flex-wrap">
+    <div class="w-100 h-100">
+      <app-register
+        #registerForm
+        *ngIf="!statusForm.list"
+        (statusFormEmit)="toggleCreate($event)"
+        [statusForm]="statusForm"
+        class="form w-100 h-100"
+      >
+      </app-register>
+      <app-login
+        *ngIf="!statusForm.create"
+        class="form w-100 h-100"
+        (statusFormEmit)="toggleEdit($event)"
+      >
+      </app-login>
+    </div>
+  </div>
+</div>

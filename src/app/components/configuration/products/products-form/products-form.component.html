@@ -1,0 +1,70 @@
+<div class="flex justify-content-center">
+  <p-card class="col-6" header="Formulario de productos">
+    <form [formGroup]="form">
+      <div class="w-100 h-100">
+        <div class="">
+          <div class="w-100 p-1">
+            <label for="name_" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name_"
+              [class.is-invalid]="invalidName"
+            />
+            <small *ngIf="invalidName" class="text-danger"
+              >Ingrese un nombre valido</small
+            >
+          </div>
+          <div class="w-100 p-1">
+            <label for="set_" class="form-label">Lote</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="set_"
+              [class.is-invalid]="invalidSet"
+            />
+            <small *ngIf="invalidSet" class="text-danger"
+              >Ingrese un lote valido</small
+            >
+          </div>
+          <div class="w-100 p-1">
+            <label for="price" class="form-label">Precio</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="price"
+              [class.is-invalid]="invalidPrice"
+            />
+            <small *ngIf="invalidPrice" class="text-danger"
+              >Ingrese un precio valido</small
+            >
+          </div>
+          <div class="w-100 p-1">
+            <label for="stock" class="form-label">Stock</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="stock"
+              [class.is-invalid]="invalidStock"
+            />
+            <small *ngIf="invalidStock" class="text-danger"
+              >Ingrese un stock valido</small
+            >
+          </div>
+          <div class="w-100 p-1">
+            <label for="join_date" class="form-label">Fecha de ingreso</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="join_date"
+              [class.is-invalid]="invalidDate"
+            />
+            <small *ngIf="invalidDate" class="text-danger"
+              >Ingrese una fecha</small
+            >
+          </div>
+        </div>
+      </div>
+    </form>
+  </p-card>
+</div>
