@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BaseListDirective } from 'src/app/directives/base-list.directive';
 import { BrmService } from 'src/app/services/brm.service';
@@ -19,6 +19,7 @@ export class ProductsListComponent extends BaseListDirective implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('Hola');
     this.listService = this.brmService.products();
     this.getItems();
   }

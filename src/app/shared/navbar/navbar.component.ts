@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  DoCheck,
+  EventEmitter,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BaseListDirective } from 'src/app/directives/base-list.directive';
 import { BrmService } from 'src/app/services/brm.service';
@@ -11,7 +19,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.sass'],
 })
 export class NavbarComponent extends BaseListDirective {
-  @Output() userLoggedData = new EventEmitter<any>();
   constructor(
     brmService: BrmService,
     toast: ToastrService,

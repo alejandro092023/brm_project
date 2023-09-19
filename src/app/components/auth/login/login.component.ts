@@ -46,6 +46,7 @@ export class LoginComponent extends BaseFormDirective {
       (next) => {
         this.cleanForm();
         localStorage.setItem('token', next.token);
+        this.token.emit(localStorage.getItem('token'));
       },
       (error) => {
         this.toastr.error('Nombre y/o contraseña incorrectos', 'Error');
@@ -63,6 +64,6 @@ export class LoginComponent extends BaseFormDirective {
       editId: 0,
       delete: 0,
     });
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/config/product']);
   }
 }

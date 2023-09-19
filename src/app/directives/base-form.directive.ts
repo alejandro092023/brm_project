@@ -5,6 +5,7 @@ import {
   OnChanges,
   Output,
   SimpleChanges,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BrmService } from '../services/brm.service';
@@ -22,6 +23,7 @@ export class BaseFormDirective implements OnChanges {
   form!: FormGroup;
   @Input() statusForm = { create: 0, edit: 0, editId: 0, list: 0, delete: 0 };
   @Output() statusFormEmit = new EventEmitter<any>();
+  @Output() token = new EventEmitter<any>();
   @Output() validation = new EventEmitter<any>();
 
   constructor(

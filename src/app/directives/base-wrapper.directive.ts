@@ -1,4 +1,5 @@
-import { Directive } from '@angular/core';
+import { Directive, Input } from '@angular/core';
+import { BaseListDirective } from './base-list.directive';
 
 @Directive({
   selector: '[appBaseWrapper]',
