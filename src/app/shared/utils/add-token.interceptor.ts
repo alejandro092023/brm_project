@@ -8,10 +8,11 @@ import {
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { BrmService } from 'src/app/services/brm.service';
 
 @Injectable()
 export class AddTokenInterceptor implements HttpInterceptor {
-  constructor(public router: Router) {}
+  constructor(private router: Router, private brmService: BrmService) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -26,7 +27,8 @@ export class AddTokenInterceptor implements HttpInterceptor {
     }
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (error.status == 401) {
+        if (error.status === 401) {
+          this.brmService.msjError(error);
           this.router.navigate(['auth']);
         }
         return throwError(() => new Error('Error'));

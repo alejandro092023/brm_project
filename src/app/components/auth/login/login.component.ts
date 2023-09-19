@@ -63,6 +63,6 @@ export class LoginComponent extends BaseFormDirective {
       editId: 0,
       delete: 0,
     });
-    this.router.navigate(['/navbar']);
+    this.router.navigate(['/dashboard']);
   }
 }

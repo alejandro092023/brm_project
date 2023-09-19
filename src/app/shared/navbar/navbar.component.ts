@@ -29,7 +29,7 @@ export class NavbarComponent extends BaseListDirective {
   override handleLoadData(data: any): void {
     console.log(data);
     data = data.filter((data: any) => {
-      return data.type_ === 'DEFAULT';
+      return data.type_ === 'NAVBAR';
     });
     super.handleLoadData(data);
   }

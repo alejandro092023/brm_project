@@ -4,6 +4,7 @@ import { StoreComponent } from './store/store.component';
 import { AuthComponent } from './auth/auth.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { NavbarComponent } from '../shared/navbar/navbar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -22,8 +23,8 @@ const routes: Routes = [
         component: StoreComponent,
       },
       {
-        path: 'navbar',
-        component: NavbarComponent,
+        path: 'dashboard',
+        component: DashboardComponent,
       },
       {
         path: 'config',

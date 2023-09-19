@@ -10,10 +10,6 @@ const routes: Routes = [
         path: 'product',
         component: ProductsComponent,
       },
-      {
-        path: '**',
-        redirectTo: 'product',
-      },
     ],
   },
 ];

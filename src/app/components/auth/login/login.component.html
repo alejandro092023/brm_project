@@ -34,9 +34,9 @@
           label="Aceptar"
           icon=""
           styleClass="p-button-outlined button-form"
-          [ngClass]="form?.valid ? 'p-button-primary' : 'p-button-secondary'"
+          [ngClass]="form.valid ? 'p-button-primary' : 'p-button-secondary'"
           (click)="setSubmitMetods()"
-          [disabled]="!form?.valid"
+          [disabled]="!form.valid"
         ></p-button>
       </div>
       <div class="w-100 flex justify-content-center">

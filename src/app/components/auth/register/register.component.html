@@ -52,10 +52,10 @@
           label="Guardar"
           icon="pi pi-cloud"
           styleClass="p-button-outlined button-form"
-          [ngClass]="form?.valid ? 'p-button-primary' : 'p-button-secondary'"
+          [ngClass]="form.valid ? 'p-button-primary' : 'p-button-secondary'"
           (click)="setSubmitMetods()"
           [routerLink]="['/auth']"
-          [disabled]="!form?.valid"
+          [disabled]="!form.valid"
         ></p-button>
       </div>
     </form>
