@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BaseFormDirective } from 'src/app/directives/base-form.directive';
 import { BrmService } from 'src/app/services/brm.service';
+import { UtilsModule } from 'src/app/shared/utils/utils.module';
 
 @Component({
   selector: 'app-login',
@@ -14,10 +15,11 @@ export class LoginComponent extends BaseFormDirective {
   constructor(
     brmService: BrmService,
     toastr: ToastrService,
+    utils: UtilsModule,
     fb: FormBuilder,
     public router: Router
   ) {
-    super(brmService, toastr, fb);
+    super(brmService, toastr, utils, fb);
   }
 
   override setSubmitMetods() {
@@ -44,9 +46,10 @@ export class LoginComponent extends BaseFormDirective {
   override formOperation() {
     this.postService.subscribe(
       (next) => {
+        console.log(next);
         this.cleanForm();
         localStorage.setItem('token', next.token);
-        this.token.emit(localStorage.getItem('token'));
+        localStorage.setItem('globalVariable', JSON.stringify(next.body));
       },
       (error) => {
         this.toastr.error('Nombre y/o contraseña incorrectos', 'Error');

@@ -5,6 +5,7 @@ import { BaseListDirective } from './base-list.directive';
   selector: '[appBaseWrapper]',
 })
 export class BaseWrapperDirective {
+  globalValue: any = '';
   statusForm = {
     create: 0,
     list: 1,

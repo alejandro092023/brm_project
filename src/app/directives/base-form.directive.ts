@@ -11,11 +11,13 @@ import { Observable } from 'rxjs';
 import { BrmService } from '../services/brm.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { UtilsModule } from '../shared/utils/utils.module';
 
 @Directive({
   selector: '[appBaseForm]',
 })
 export class BaseFormDirective implements OnChanges {
+  globalValue: any = '';
   postService: Observable<any>;
   putService: Observable<any>;
   getItemService: Observable<any>;
@@ -29,6 +31,7 @@ export class BaseFormDirective implements OnChanges {
   constructor(
     protected brmService: BrmService,
     protected toastr: ToastrService,
+    protected utils: UtilsModule,
     protected fb: FormBuilder
   ) {
     this.postService = new Observable((observer) => {

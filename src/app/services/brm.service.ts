@@ -74,8 +74,14 @@ export class BrmService {
     });
   }
 
+  shoppingPost(data: object): Observable<any> {
+    return this.http.post<any>(this.url + '/user-product', data, this.opciones);
+  }
+
   shopping(): Observable<any> {
-    return this.http.get<any>(this.url + '/shopping');
+    return this.http.get<any>(this.url + '/users/products', {
+      headers: this.headers,
+    });
   }
 
   menu(): Observable<any> {

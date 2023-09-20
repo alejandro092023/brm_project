@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { BaseFormDirective } from 'src/app/directives/base-form.directive';
 import { BrmService } from 'src/app/services/brm.service';
+import { UtilsModule } from '../../../shared/utils/utils.module';
 
 @Component({
   selector: 'app-register',
@@ -10,8 +11,13 @@ import { BrmService } from 'src/app/services/brm.service';
   styleUrls: ['./register.component.sass'],
 })
 export class RegisterComponent extends BaseFormDirective {
-  constructor(brmService: BrmService, toastr: ToastrService, fb: FormBuilder) {
-    super(brmService, toastr, fb);
+  constructor(
+    brmService: BrmService,
+    toastr: ToastrService,
+    utils: UtilsModule,
+    fb: FormBuilder
+  ) {
+    super(brmService, toastr, utils, fb);
   }
 
   override setSubmitMetods() {

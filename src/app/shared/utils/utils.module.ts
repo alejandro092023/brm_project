@@ -14,4 +14,21 @@ export class UtilsModule {
     const dateObject = new Date(date);
     return this.datePipe.transform(dateObject, 'dd MMM yyyy');
   }
+
+  dateFormattedString(date: any) {
+    date = '2023-10-23';
+
+    const dateFormattedString = this.datePipe.transform(date, 'yyyy-MM-dd');
+    return dateFormattedString;
+  }
+
+  getFullPrice(products: any) {
+    let fullPrice = 0;
+    products.map((product: any) => {
+      product.fullPriceByProduct =
+        product['price'] * product['user_product_detail']['quantity'];
+      return (fullPrice += product.fullPriceByProduct);
+    });
+    return fullPrice;
+  }
 }

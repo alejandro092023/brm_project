@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BaseListDirective } from 'src/app/directives/base-list.directive';
 import { BrmService } from 'src/app/services/brm.service';
@@ -9,7 +15,9 @@ import { UtilsModule } from 'src/app/shared/utils/utils.module';
   templateUrl: './store-list.component.html',
   styleUrls: ['./store-list.component.sass'],
 })
-export class StoreListComponent extends BaseListDirective {
+export class StoreListComponent extends BaseListDirective implements OnChanges {
+  @Input() isModalProductsClose = false;
+
   constructor(
     brmService: BrmService,
     toast: ToastrService,
@@ -19,7 +27,18 @@ export class StoreListComponent extends BaseListDirective {
   }
 
   ngOnInit(): void {
-    this.listService = this.brmService.products();
+    this.listService = this.brmService.shopping();
     this.getItems();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.isModalProductsClose) {
+      this.getItems();
+    }
+  }
+
+  override handleLoadData(data: []): void {
+    console.log(data);
+    super.handleLoadData(data);
   }
 }

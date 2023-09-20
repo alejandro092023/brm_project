@@ -7,22 +7,47 @@
         <span class="col-fixed p-0 label-menu p-1">Compras</span>
         <p-button
           label="Agregar"
-          icon="pi pi-plus"
-          styleClass="p-button-outlined p-button-success button-form"
+          icon="pi pi-shopping-cart"
+          styleClass="p-button-outlined p-button-primary button-form"
           (click)="
             toggleList({ create: 1, list: 0, edit: 0, editId: 0, delete: 0 })
           "
-          *ngIf="statusForm.list"
         ></p-button>
       </div>
     </div>
     <div class="w-100 h-100">
       <app-store-list
-        *ngIf="statusForm.list"
         class="form w-100 h-100"
         (statusFormEmit)="toggleEdit($event)"
+        [isModalProductsClose]="showModal"
       >
       </app-store-list>
     </div>
   </div>
 </div>
+
+<p-dialog
+  header="Compras"
+  [(visible)]="showModal"
+  [modal]="true"
+  [style]="{ width: '60%', height: '60%' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <app-store-form
+    #productForm
+    *ngIf="statusForm.create || statusForm.edit"
+    (statusFormEmit)="closeModal($event)"
+    [statusForm]="statusForm"
+    class="w-100 h-100"
+  >
+  </app-store-form>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="form?.setSubmitMetods()"
+      label="Guardar"
+      styleClass="p-button-outlined p-button-primary button-form"
+    ></p-button>
+  </ng-template>
+</p-dialog>

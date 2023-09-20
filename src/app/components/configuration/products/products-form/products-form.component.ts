@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { BaseFormDirective } from 'src/app/directives/base-form.directive';
 import { BrmService } from 'src/app/services/brm.service';
+import { UtilsModule } from 'src/app/shared/utils/utils.module';
 
 @Component({
   selector: 'app-products-form',
@@ -11,8 +12,13 @@ import { BrmService } from 'src/app/services/brm.service';
   styleUrls: ['./products-form.component.sass'],
 })
 export class ProductsFormComponent extends BaseFormDirective {
-  constructor(brmService: BrmService, toastr: ToastrService, fb: FormBuilder) {
-    super(brmService, toastr, fb);
+  constructor(
+    brmService: BrmService,
+    toastr: ToastrService,
+    utils: UtilsModule,
+    fb: FormBuilder
+  ) {
+    super(brmService, toastr, utils, fb);
   }
 
   override setSubmitMetods() {

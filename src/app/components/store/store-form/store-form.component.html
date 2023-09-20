@@ -1,1 +1,20 @@
-<p>store-form works!</p>
+<div class="w-100 h-100">
+  <div class="w-100 py-2" *ngFor="let formProduct of formProducts">
+    <p-card [header]="formProduct.value.name_">
+      <form [formGroup]="formProduct">
+        <div class="w-100 h-100">
+          <div class="w-100 p-1">
+            <label for="name_" class="form-label">Cantidad</label>
+            <p-inputNumber
+              class="ml-4"
+              [showButtons]="true"
+              formControlName="quantity"
+              mode="decimal"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </form>
+    </p-card>
+  </div>
+</div>

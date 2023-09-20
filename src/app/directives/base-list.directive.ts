@@ -16,12 +16,14 @@ import { ToastrService } from 'ngx-toastr';
   selector: '[appBaseList]',
 })
 export class BaseListDirective {
+  globalValue: any = '';
   loading = true;
   listService: Observable<any>;
   deleteService: Observable<any>;
   @Input() statusForm = { create: 0, edit: 0, editId: 0, list: 0, delete: 0 };
   @Output() statusFormEmit = new EventEmitter<any>();
   rows = [];
+  selectedData: any[] = [];
 
   constructor(
     protected brmService: BrmService,
