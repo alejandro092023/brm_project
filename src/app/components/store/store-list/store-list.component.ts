@@ -36,9 +36,4 @@ export class StoreListComponent extends BaseListDirective implements OnChanges {
       this.getItems();
     }
   }
-
-  override handleLoadData(data: []): void {
-    console.log(data);
-    super.handleLoadData(data);
-  }
 }

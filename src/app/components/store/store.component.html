@@ -19,7 +19,7 @@
       <app-store-list
         class="form w-100 h-100"
         (statusFormEmit)="toggleEdit($event)"
-        [isModalProductsClose]="showModal"
+        [isModalProductsClose]="!showModal"
       >
       </app-store-list>
     </div>
@@ -30,7 +30,7 @@
   header="Compras"
   [(visible)]="showModal"
   [modal]="true"
-  [style]="{ width: '60%', height: '60%' }"
+  [style]="{ width: '40%', height: '60%' }"
   [draggable]="false"
   [resizable]="false"
 >

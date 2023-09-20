@@ -26,7 +26,7 @@ export class UtilsModule {
     let fullPrice = 0;
     products.map((product: any) => {
       product.fullPriceByProduct =
-        product['price'] * product['user_product_detail']['quantity'];
+        product['product']['price'] * product['quantity'];
       return (fullPrice += product.fullPriceByProduct);
     });
     return fullPrice;
