@@ -66,16 +66,7 @@ export class BaseFormDirective implements OnChanges {
     }
   }
 
-  saveUpdate() {
-    this.putService = this.brmService.productPut(
-      this.statusForm.editId,
-      this.form.value
-    );
-    this.toastr.success('Datos actualizados exitosamente', 'Datos guardados');
-    this.putService.subscribe((response) => {
-      this.cleanForm();
-    });
-  }
+  saveUpdate() {}
 
   handleEditSuccess(data: object) {
     this.form.patchValue(data);

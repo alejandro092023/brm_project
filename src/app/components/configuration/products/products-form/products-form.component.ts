@@ -31,6 +31,17 @@ export class ProductsFormComponent extends BaseFormDirective {
     });
   }
 
+  override saveUpdate(): void {
+    this.putService = this.brmService.productPut(
+      this.statusForm.editId,
+      this.form.value
+    );
+    this.toastr.success('Datos actualizados exitosamente', 'Datos guardados');
+    this.putService.subscribe((response) => {
+      this.cleanForm();
+    });
+  }
+
   get invalidName() {
     return this.form.get('name_')?.invalid && this.form.get('name_')?.touched;
   }

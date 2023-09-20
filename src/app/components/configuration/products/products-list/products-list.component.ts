@@ -19,7 +19,6 @@ export class ProductsListComponent extends BaseListDirective implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Hola');
     this.listService = this.brmService.products();
     this.getItems();
   }

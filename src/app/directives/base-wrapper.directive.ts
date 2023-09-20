@@ -14,7 +14,6 @@ export class BaseWrapperDirective {
   };
 
   toggleCreate(statusForm: any = this.statusForm) {
-    console.log(statusForm);
     this.statusForm = statusForm;
   }
   toggleEdit(statusForm: any = this.statusForm) {
