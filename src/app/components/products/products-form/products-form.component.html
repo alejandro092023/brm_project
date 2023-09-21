@@ -51,13 +51,16 @@
           >
         </div>
         <div class="w-100 p-1">
-          <label for="join_date" class="form-label">Fecha de ingreso</label>
-          <input
-            type="text"
-            class="form-control"
+          <label for="join_date" class="form-label w-100"
+            >Fecha de ingreso</label
+          >
+          <p-calendar
+            class="w-100"
             formControlName="join_date"
             [class.is-invalid]="invalidDate"
-          />
+            dateFormat="M d yy"
+            [showIcon]="true"
+          ></p-calendar>
           <small *ngIf="invalidDate" class="text-danger"
             >Ingrese una fecha</small
           >

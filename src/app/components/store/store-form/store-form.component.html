@@ -10,6 +10,8 @@
               [showButtons]="true"
               formControlName="quantity"
               mode="decimal"
+              [max]="formProduct.value.stock"
+              [min]="0"
             >
             </p-inputNumber>
           </div>

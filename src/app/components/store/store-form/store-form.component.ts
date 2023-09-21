@@ -41,6 +41,7 @@ export class StoreFormComponent extends BaseFormDirective {
       .filter((form) => form.value.quantity)
       .map((form) => {
         delete form.value.name_;
+        delete form.value.stock;
         return form.value;
       });
     this.postService.subscribe((response) => {
@@ -60,6 +61,7 @@ export class StoreFormComponent extends BaseFormDirective {
         name_: [item.name_],
         user_id: [this.globalValue.user_id],
         product_id: [item.product_id],
+        stock: [item.stock],
         quantity: [0],
         date_shopping: [this.utils.dateFormattedString(new Date())],
       });

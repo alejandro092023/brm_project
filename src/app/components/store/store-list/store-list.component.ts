@@ -17,6 +17,8 @@ import { UtilsModule } from 'src/app/shared/utils/utils.module';
 })
 export class StoreListComponent extends BaseListDirective implements OnChanges {
   @Input() isModalProductsClose = false;
+  isSummaryShopping = false;
+  rowsSummaryShopping: any = null;
 
   constructor(
     brmService: BrmService,
@@ -35,5 +37,10 @@ export class StoreListComponent extends BaseListDirective implements OnChanges {
     if (this.isModalProductsClose) {
       this.getItems();
     }
+  }
+
+  summaryShopping(row: any) {
+    this.isSummaryShopping = true;
+    this.rowsSummaryShopping = row;
   }
 }

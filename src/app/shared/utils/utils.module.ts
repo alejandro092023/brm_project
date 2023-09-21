@@ -12,12 +12,11 @@ export class UtilsModule {
 
   dateToFormat(date: string = '') {
     const dateObject = new Date(date);
+    dateObject.setDate(dateObject.getDate() + 1);
     return this.datePipe.transform(dateObject, 'dd MMM yyyy');
   }
 
   dateFormattedString(date: any) {
-    date = '2023-10-23';
-
     const dateFormattedString = this.datePipe.transform(date, 'yyyy-MM-dd');
     return dateFormattedString;
   }

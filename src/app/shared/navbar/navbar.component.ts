@@ -29,6 +29,7 @@ export class NavbarComponent extends BaseListDirective {
   }
 
   ngOnInit(): void {
+    this.globalValue = JSON.parse(localStorage.getItem('globalVariable') || '');
     this.listService = this.brmService.menu();
     this.getItems();
   }

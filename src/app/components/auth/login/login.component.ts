@@ -46,7 +46,6 @@ export class LoginComponent extends BaseFormDirective {
   override formOperation() {
     this.postService.subscribe(
       (next) => {
-        console.log(next);
         this.cleanForm();
         localStorage.setItem('token', next.token);
         localStorage.setItem('globalVariable', JSON.stringify(next.body));

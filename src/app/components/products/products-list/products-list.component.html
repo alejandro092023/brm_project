@@ -103,15 +103,27 @@
           {{ utils.dateToFormat(row.join_date) }}
         </td>
         <td style="text-align: center" pFrozenColumn>
-          <div class="flex" style="height: 40px; width: 102px">
+          <div
+            class="flex justify-content-center"
+            style="height: 35px; width: 100px"
+          >
             <button
               pButton
               type="button"
               icon="pi pi-pencil"
-              class="p-button-outlined p-button-primary button-form mx-2"
+              class="p-button-outlined p-button-primary button-form"
               [pTooltip]="'editar'"
               tooltipPosition="left"
               (click)="edit(row.product_id)"
+            ></button>
+            <button
+              pButton
+              type="button"
+              icon="pi pi-bars"
+              class="p-button-outlined p-button-help button-form mx-1"
+              [pTooltip]="'Historial'"
+              tooltipPosition="left"
+              (click)="historyProducts(row)"
             ></button>
             <button
               pButton
@@ -133,3 +145,38 @@
     </ng-template>
   </p-table>
 </div>
+
+<p-sidebar
+  [(visible)]="idModalHistoryShow"
+  position="right"
+  styleClass="w-30rem"
+>
+  <div *ngIf="productsHistory">
+    <h3 style="position: fixed; top: 20px">{{ productsHistory.name_ }}</h3>
+    <div class="w-100 h-100">
+      <p-card class="w-100 h-100">
+        <div
+          class="w-100 h-100 flex flex-column"
+          *ngFor="let item of productsHistory?.user_product_details"
+        >
+          <h6 class="label-menu">{{ item.user_.name_ }}</h6>
+          <div class="w-100 h-100 flex flex-column ml-2">
+            <div class="flex p-0 align-items-center">
+              <div class="col-fixed p-0 label-subtitle">Cantidad:</div>
+              <div class="col-fixed p-0 ml-2">
+                {{ item.quantity }}
+              </div>
+            </div>
+            <div class="flex p-0 align-items-center">
+              <div class="col-fixed p-0 label-subtitle">Fecha de compra:</div>
+              <div class="col-fixed p-0 ml-2">
+                {{ utils.dateToFormat(item.date_shopping) }}
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+      </p-card>
+    </div>
+  </div>
+</p-sidebar>

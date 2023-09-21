@@ -1,7 +1,7 @@
 <div class="w-100 parent-box relative flex flex-wrap">
   <div class="box-navbar w-100 overflow-auto">
     <div class="w-100 flex justify-content-between p-1">
-      <div class="flex col-fixed p-0">
+      <div class="flex col-fixed p-1">
         <div class="flex box-parent-menu">
           <div
             class="flex align-items-center px-2 m-1 personalized-card box-menu"
@@ -20,7 +20,12 @@
         >
           <i class="pi pi-cog" style="font-size: 20px"></i>
         </div> -->
-        <div (click)="logout()" class="flex col personalized-card box-menu">
+        <div class="flex col-fixed p-1 personalized-card mx-2">
+          <span class="label-menu">
+            {{ globalValue.name_ }}
+          </span>
+        </div>
+        <div (click)="logout()" class="flex col p-1 personalized-card box-menu">
           <i class="pi pi-sign-out" style="font-size: 20px"></i>
         </div>
       </div>

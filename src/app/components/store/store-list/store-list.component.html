@@ -125,15 +125,15 @@
           </div>
         </td>
         <td style="text-align: center" pFrozenColumn>
-          <div class="flex" style="height: 40px; width: 102px">
+          <div class="flex" style="height: 35px; width: 90px">
             <button
               pButton
               type="button"
               icon="pi pi-dollar"
-              class="p-button-outlined p-button-warning button-form mx-2"
+              class="p-button-outlined p-button-warning button-form"
               [pTooltip]="'Detalle de compra'"
               tooltipPosition="left"
-              (click)="edit(row.product_id)"
+              (click)="summaryShopping(row)"
             ></button>
           </div>
         </td>
@@ -146,3 +146,60 @@
     </ng-template>
   </p-table>
 </div>
+
+<p-sidebar
+  [(visible)]="isSummaryShopping"
+  position="right"
+  styleClass="w-30rem"
+>
+  <div *ngIf="rowsSummaryShopping">
+    <h3 style="position: fixed; top: 20px">{{ rowsSummaryShopping.name_ }}</h3>
+    <div class="w-100 h-100">
+      <p-card class="w-100 h-100">
+        <div
+          class="w-100 h-100 flex flex-column"
+          *ngFor="let item of rowsSummaryShopping?.user_product_details"
+        >
+          <h6 class="label-menu">{{ item.product.name_ }}</h6>
+          <div class="w-100 h-100 flex flex-column ml-2">
+            <div class="flex p-0 align-items-center">
+              <div class="col-fixed p-0 label-subtitle">Precio:</div>
+              <div class="col-fixed p-0 ml-2">
+                {{ item.product.price }}
+              </div>
+            </div>
+            <div class="flex p-0 align-items-center">
+              <div class="col-fixed p-0 label-subtitle">Cantidad:</div>
+              <div class="col-fixed p-0 ml-2">
+                {{ item.quantity }}
+              </div>
+            </div>
+            <div class="flex p-0 align-items-center">
+              <div class="col-fixed p-0 label-subtitle">
+                total por cantidad:
+              </div>
+              <div class="col-fixed p-0 ml-2">
+                {{ item.fullPriceByProduct }}
+              </div>
+            </div>
+            <div class="flex p-0 align-items-center">
+              <div class="col-fixed p-0 label-subtitle">Fecha de compra:</div>
+              <div class="col-fixed p-0 ml-2">
+                {{ utils.dateToFormat(item.date_shopping) }}
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div class="w-100 h-100">
+          <div class="flex justify-content-end">
+            <div class="col-fixed p-0 label-subtitle">Total:</div>
+            <div class="col-fixed p-0 ml-2">
+              {{ utils.getFullPrice(rowsSummaryShopping.user_product_details) }}
+            </div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</p-sidebar>

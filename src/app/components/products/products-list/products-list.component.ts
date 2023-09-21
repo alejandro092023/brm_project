@@ -10,6 +10,8 @@ import { UtilsModule } from 'src/app/shared/utils/utils.module';
   styleUrls: ['./products-list.component.sass'],
 })
 export class ProductsListComponent extends BaseListDirective implements OnInit {
+  idModalHistoryShow = false;
+  productsHistory: any = null;
   constructor(
     brmService: BrmService,
     toast: ToastrService,
@@ -21,5 +23,10 @@ export class ProductsListComponent extends BaseListDirective implements OnInit {
   ngOnInit(): void {
     this.listService = this.brmService.products();
     this.getItems();
+  }
+
+  historyProducts(row: any) {
+    this.idModalHistoryShow = true;
+    this.productsHistory = row;
   }
 }

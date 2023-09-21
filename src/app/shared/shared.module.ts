@@ -16,6 +16,8 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CardModule } from 'primeng/card';
+import { SidebarModule } from 'primeng/sidebar';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [NavbarComponent],
@@ -36,6 +38,8 @@ import { CardModule } from 'primeng/card';
     TabMenuModule,
     ScrollPanelModule,
     CardModule,
+    SidebarModule,
+    CalendarModule,
   ],
   exports: [
     SelectButtonModule,
@@ -54,6 +58,8 @@ import { CardModule } from 'primeng/card';
     ScrollPanelModule,
     NavbarComponent,
     CardModule,
+    SidebarModule,
+    CalendarModule,
   ],
 })
 export class SharedModule {}

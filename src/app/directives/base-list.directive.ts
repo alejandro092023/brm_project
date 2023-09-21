@@ -16,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
   selector: '[appBaseList]',
 })
 export class BaseListDirective {
-  globalValue: any = '';
+  globalValue: any = null;
   loading = true;
   listService: Observable<any>;
   deleteService: Observable<any>;
