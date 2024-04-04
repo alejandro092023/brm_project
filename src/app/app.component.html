@@ -1,8 +1,8 @@
-<div class="flex flex-column h-100">
+<div class="h-100 relative overflow-hidden">
   <div class="w-100">
     <app-navbar #navbar *ngIf="token"></app-navbar>
   </div>
-  <div class="w-100 h-100 p-0">
+  <div class="w-100 h-100">
     <router-outlet></router-outlet>
   </div>
 </div>

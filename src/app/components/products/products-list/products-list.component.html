@@ -8,12 +8,13 @@
     [rows]="25"
     [scrollable]="true"
     [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
     [rowsPerPageOptions]="[10, 25, 50]"
     [loading]="loading"
     [paginator]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [filterDelay]="0"
-    [globalFilterFields]="['name_', 'pricec', 'set', 'stock', 'join_date']"
+    [globalFilterFields]="['name_', 'price', 'set', 'stock', 'join_date']"
   >
     <ng-template pTemplate="header">
       <tr>

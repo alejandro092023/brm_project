@@ -30,6 +30,8 @@ export class AddTokenInterceptor implements HttpInterceptor {
         if (error.status === 401) {
           this.brmService.msjError(error);
           this.router.navigate(['auth']);
+        } else {
+          this.router.navigate(['product']);
         }
         return throwError(() => new Error('Error'));
       })

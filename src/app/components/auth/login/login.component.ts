@@ -52,6 +52,7 @@ export class LoginComponent extends BaseFormDirective {
       },
       (error) => {
         this.toastr.error('Nombre y/o contraseña incorrectos', 'Error');
+        this.router.navigate(['/auth']);
         console.log(error);
       }
     );
